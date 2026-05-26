@@ -1,8 +1,6 @@
+import Body from "./components/Body";
+
 const App = () => {
-  return (
-    <h1 className="text-3xl font-bold text-blue-600 text-center mt-10">
-      Namaste ! Tailwind v4 is working !
-    </h1>
-  );
+  return <Body />;
 };
 export default App;

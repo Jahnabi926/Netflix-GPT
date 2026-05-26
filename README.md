@@ -2,6 +2,9 @@
 
 --Vite app
 --Configured tailwindCss
+--Header
+--Login Form
+--Sign up form
 
 # Features of the app
 
