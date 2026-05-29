@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "./utils/validate";
-import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -10,6 +9,7 @@ import {
 import { auth } from "./utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "./utils/userSlice";
+import { USER_AVATAR } from "./utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -17,7 +17,6 @@ const Login = () => {
   const name = useRef(null);
   const email = useRef(null); // it creates a reference . Used for getting the typed data inside the input fields in forms
   const password = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
@@ -30,9 +29,6 @@ const Login = () => {
     const emailValue = email.current ? email.current.value : null;
     const passwordValue = password.current ? password.current.value : null;
 
-    console.log("Name", nameValue);
-    console.log("Email", emailValue); // logs a reference to the input boxes with their values
-    console.log("Password", passwordValue);
     const message = checkValidData(nameValue, emailValue, passwordValue);
     setErrorMessage(message);
 
@@ -48,7 +44,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: nameValue,
-            photoURL: "https://avatars.githubusercontent.com/u/71249998?v=4",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
@@ -62,7 +58,6 @@ const Login = () => {
                   photoURL: photoURL,
                 }),
               );
-              navigate("/browse");
               console.log("Who Signed Up ?", user);
             })
             .catch((error) => {
@@ -82,7 +77,6 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log("Who Logged in ?", user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
