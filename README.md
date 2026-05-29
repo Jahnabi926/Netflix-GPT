@@ -22,7 +22,7 @@
 --Add hardcoded values to the constants file
 --Register TMDB Api & create an app & get access token
 --Go to API reference & Get data from "Now Playing" movies list
---Custom Hook for Now Playing Movies
+--Custom Hook for Now Playing Movies -- useNowPlaying
 --Create movieSlice
 --Update Store with movies data
 --Planning for Main Container and Secondary Container
@@ -30,6 +30,11 @@
 --Update Store with Trailer Video Data
 --Embed the you tube video and make it autoplay and mute
 --Tailwind Classes to make Main Container look awesome.
+--Built Secondary Container
+--Built Movie List and Movie Card
+--TMDB Image CDN URL
+--Made Browse Page with Tailwind CSS
+--Refactored by creating usePopularMovies, useTopRated, useUpcoming Custom Hooks
 
 # Features of the app
 
